@@ -14,7 +14,7 @@ type User = z.infer<typeof UserSchema>;
 import { ZodError } from "zod";
 import InputForm from "./input";
 
-export default function regirsterForm() {
+export default function RegirsterForm() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
