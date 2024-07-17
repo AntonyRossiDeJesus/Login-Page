@@ -4,6 +4,7 @@ interface InputFormProps {
   name: string;
   value: string;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onFocus?: (event: React.FocusEvent<HTMLInputElement>) => void;
 }
 
 export default function InputForm({
@@ -12,6 +13,7 @@ export default function InputForm({
   onChange,
   name,
   id,
+  onFocus,
 }: InputFormProps) {
   return (
     <>
@@ -25,6 +27,7 @@ export default function InputForm({
           name={name}
           value={value}
           onChange={onChange}
+          onFocus={onFocus}
         />
       </div>
     </>

@@ -33,9 +33,9 @@ export default function Home() {
         </div>
       </header>
 
-      <main className="w-full -mt-24 pt-40 pb-20 flex justify-center bg-bg-hero bg-cover bg-no-repeat m-auto lg:h-screen">
-        <section className="container flex justify-center ">
-          <div className="flex w-full flex-col justify-center items-center gap-10 lg:flex-row lg:">
+      <main className="w-full -mt-[88px] pt-40 pb-20 flex justify-center bg-bg-hero bg-cover bg-no-repeat lg:h-screen">
+        <section className=" container flex justify-center ">
+          <div className="flex w-full flex-col justify-center items-center gap-10 lg:flex-row">
             <div className="p-8 w-80 lg:min-h-96 h-auto bg-zinc-200 rounded-md space-y-4 backdrop-blur-sm ">
               <h2 className="text-2xl">Cadastro</h2>
               <RegisterForm />

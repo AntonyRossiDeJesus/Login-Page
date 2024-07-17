@@ -25,10 +25,21 @@ export default function LoginForm() {
     setFormData((prevData) => ({ ...prevData, [name]: value }));
   };
 
+  const handleFocus = (e: React.FocusEvent<HTMLInputElement>) => {
+    const { name } = e.target;
+    setErrors((prevErrors) => ({ ...prevErrors, [name]: "" }));
+  };
+
   const handleSubmit = (e: any) => {
     e.preventDefault();
     try {
       UserSchema.parse(formData);
+
+      setFormData({
+        email: "",
+        password: "",
+      });
+
       alert("Login efetuado com sucesso!");
     } catch (err) {
       if (err instanceof ZodError) {
@@ -53,6 +64,7 @@ export default function LoginForm() {
             name="email"
             value={formData.email}
             onChange={handleChange}
+            onFocus={handleFocus}
           ></InputForm>
           {errors && <span className="text-red-600">{errors.email}</span>}
         </div>
@@ -64,6 +76,7 @@ export default function LoginForm() {
             name="password"
             value={formData.password}
             onChange={handleChange}
+            onFocus={handleFocus}
           ></InputForm>
           {errors && <span className="text-red-600">{errors.password}</span>}
         </div>
