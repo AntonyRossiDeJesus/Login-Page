@@ -4,18 +4,29 @@ import Image from "next/image";
 import React, { useEffect, useState } from "react";
 
 const ConstructionAnimation: React.FC = () => {
-  const [currentImageIndex, setCurrentImageIndex] = useState(1);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [animationStage, setAnimationStage] = useState("fade-in");
   const images = Array.from({ length: 8 }, (_, i) => `/character${i + 1}.webp`);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentImageIndex((prevIndex) =>
-        prevIndex === 7 ? 1 : prevIndex + 1
-      );
-    }, 450);
+      if (animationStage === "fade-in") {
+        setAnimationStage("fade-out");
+      } else if (animationStage === "fade-out") {
+        setAnimationStage("horizontal-fly");
+        setTimeout(() => {
+          setCurrentImageIndex((prevIndex) =>
+            prevIndex === 8 ? 0 : prevIndex + 1
+          );
+          setAnimationStage("fade-in");
+        }, 2000);
+      }
+    }, 2000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [animationStage]);
+
+  const transitionDuration = 700 + currentImageIndex * 50;
 
   return (
     <>
@@ -25,10 +36,11 @@ const ConstructionAnimation: React.FC = () => {
           alt=""
           layout="fill"
           objectFit="contain"
-          className="transition-transform translate-y-4 duration-600 w-36 h-28"
+          className={`image ${animationStage}`}
+          style={{ transitionDuration: `${transitionDuration}ms` }}
         />
       </div>
-      <div className="absolute bottom-0 mt-4 text-lg font-semibold text-gray-700">
+      <div className="absolute bottom-0 mt-4 pb-2 text-lg font-semibold text-gray-700">
         <p className="text-white">Cadastro concluido com sucesso!</p>
         Conheça mais <LoadingDots />
       </div>

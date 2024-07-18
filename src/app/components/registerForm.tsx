@@ -46,9 +46,9 @@ export default function RegirsterForm() {
         password: "",
       });
 
-      setTimeout(() => {
-        window.location.href = "https://maxdesigns.com.br";
-      }, 3000);
+      // setTimeout(() => {
+      //   window.location.href = "https://maxdesigns.com.br";
+      // }, 30000000000);
     } catch (err) {
       if (err instanceof ZodError) {
         const formattedErrors = err.errors.reduce((acc: any, curr) => {
@@ -67,10 +67,7 @@ export default function RegirsterForm() {
       <div className="relative">
         {showAlert && (
           <>
-            <AutoAlert
-              message="Cadastro concluído com sucesso!"
-              onDismiss={() => setShowAlert(false)}
-            />
+            <AutoAlert message="Cadastro concluído com sucesso!" />
           </>
         )}
         <form onSubmit={handleSubmit} className="flex flex-col gap-2">
