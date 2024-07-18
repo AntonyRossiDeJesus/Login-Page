@@ -9,12 +9,14 @@ export default function Home() {
     <>
       <header className="w-full flex justify-center bg-transparent">
         <div className="container flex justify-between items-center px-2 py-4">
-          <Image
-            className="w-24 h-14"
-            src={LogoMax}
-            priority
-            alt="Logo MaxDesigns"
-          />
+          <a target="_blank" href="https://maxdesigns.com.br/">
+            <Image
+              className="w-24 h-14"
+              src={LogoMax}
+              priority
+              alt="Logo MaxDesigns"
+            />
+          </a>
           <ul className="flex gap-8 text-white">
             <li className="hover:text-red-200 transition-all">
               <a target="_blank" href="https://maxdesigns.com.br/projetos/">

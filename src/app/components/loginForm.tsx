@@ -85,7 +85,7 @@ export default function LoginForm() {
           className="w-full p-2 bg-zinc-600 text-white uppercase rounded-md hover:bg-zinc-500 transition-all"
           type="submit"
         >
-          Enviar
+          entrar
         </button>
       </form>
     </div>
