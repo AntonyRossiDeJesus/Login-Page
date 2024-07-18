@@ -48,7 +48,7 @@ export default function RegirsterForm() {
 
       setTimeout(() => {
         window.location.href = "https://maxdesigns.com.br";
-      }, 30000000000);
+      }, 3000);
     } catch (err) {
       if (err instanceof ZodError) {
         const formattedErrors = err.errors.reduce((acc: any, curr) => {
